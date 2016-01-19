@@ -1,0 +1,32 @@
+﻿.menu{color:white;text-align:center;padding:10px;background:black}
+.menu2{color:white;text-align:center;padding:10px;margin:10px}
+.p1{background:#00aa00;color:white}
+.p2{background:#0000bb;color:white}
+.p3{background:#00aaaa;color:white}
+.p4{background:#aaaa00;color:white}
+.p5{background:#aa00aa;color:white}
+.ocupada{background-color:#aa0000;}
+.itemenu2{width:10%;padding:10px;font-size:16px;font-weight:bold; border:1px solid gray;}
+.itemenu{width:10%;padding:10px;color:white;font-size:16px;font-weight:bold}
+
+.boton{
+	font-size:1.0em;
+	border:2px solid #aaaaaa;
+	background:#666666;
+	margin:0 auto;
+	width:15%;
+	padding:5px;
+	font-weight:bold;
+	color:white;
+	}
+table{margin:0 auto;}
+#park td{color:white;text-align:center;font-size:16px;width:60px;height:60px}
+
+.consultas{text-align:center;}
+.campo{margin:0 auto;}
+input[type=text]{padding:5px;text-transform: uppercase;font-weight:bolder;text-align:center}
+input[type=submit]{padding:5px;font-weight:bolder;text-align:center}
+h3{text-align:center;color:#aa0000}
+.reporte{border-collapse:collapse;width:40%;text-align:center;}
+.reporte td{font-size:1.2em;padding:5px;border:1px solid black;background:#f6f6f6}
+

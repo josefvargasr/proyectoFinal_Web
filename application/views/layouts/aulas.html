@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='es'>
+	<head>
+		<title>Aulas</title>
+		<meta charset='utf-8'>
+		<link rel='stylesheet' href='<?php echo base_url()?>css/bootstrap.min.css'>
+		<link rel='stylesheet' href='<?php echo base_url()?>css/bn.css'>
+		<link rel="stylesheet" href='<?php echo base_url()?>css/jquery-ui.css'>
+		<script src='<?php echo base_url()?>js/jquery.min.js'></script>
+		<script src='<?php echo base_url()?>js/bootstrap.min.js'></script>
+		
+		<script src='<?php echo base_url()?>js/jquery.js'></script>
+  		<script src='<?php echo base_url()?>js/jquery-ui.js'></script>
+		<script src='<?php echo base_url()?>js/pusher.min.js'></script>	
+		<script src='<?php echo base_url()?>js/highcharts.js'></script>
+
+		<script src='<?php echo base_url()?>js/bn.js'></script>
+		
+	</head>
+	<body>		
+		<?=$content?>
+	</body>
+
+
+	<div style="text-align:center">
+
+		<form action="http://localhost/proyectoFinal" method="post" accept-charset="utf-8">
+			<input class type='submit' name='submit' value='Reservas'>
+		</form>
+
+		<form action="http://localhost/proyectoFinal/index.php/auth/logout" method="post" accept-charset="utf-8">
+			<input class type='submit' name='submit' value='Logout'>
+		</form>
+	</div>
+</html>

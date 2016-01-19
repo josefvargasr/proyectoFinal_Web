@@ -1,0 +1,69 @@
+<?php 
+    require_once('/HighRoller/HighRoller.php');
+    require_once('/HighRoller/HighRollerSeriesData.php');
+    require_once('/HighRoller/HighRollerColumnChart.php');
+    require_once('/application/models/highchart_model.php');
+
+    $meses = array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic');
+
+    $grafica = new Highchart_model;
+
+    //Grafica 4
+    $chartData4a = array_values($evenUser['res']);
+    $chartData4b = array_values($evenUser['ocup']);
+    $chartData4c = array_values($evenUser['delet']);
+    $chartData4d = array_values($evenUser['edit']);
+    
+    $series4[0] = $grafica->crearSerie('Reservas',$chartData4a);
+    $series4[1] = $grafica->crearSerie('Ocupaciones',$chartData4b);
+    $series4[2] = $grafica->crearSerie('Reservas Eliminadas',$chartData4c);
+    $series4[3] = $grafica->crearSerie('Reservas Editadas',$chartData4d);
+
+    $columnchart4 = $grafica->crearHigChart('columnchart4','Suceso de Eventos',$meses,$series4);
+?>
+	
+	<link rel='stylesheet' href='<?php echo base_url()?>css/bootstrap.min.css'>
+	<link rel='stylesheet' href='<?php echo base_url()?>css/bn.css'>
+	<link rel='stylesheet' href='<?php echo base_url()?>css/cons_est.css'>
+
+	<script src='<?php echo base_url()?>js/jquery.js'></script>
+	<script src='<?php echo base_url()?>js/jquery-ui.js'></script>
+
+	<script src='<?php echo base_url()?>js/jquery.min.js'></script>
+	<script src='<?php echo base_url()?>js/highstock.js'></script>
+	<script src='<?php echo base_url()?>js/exporting.js'></script>
+
+	<script src='<?php echo base_url()?>js/grafico.js'></script>
+	
+	<!-- HighRoller: set the location of Highcharts library -->
+
+	<?php echo HighRoller::setHighChartsLocation("http://localhost/proyectoFinal/js/highcharts/highcharts.js");?>
+
+	<div class='row'>
+		<div class='col-md-3 espacio'></div>
+		<div class='col-md-3 tableros2'>
+			<h3>Eventos de Usuarios</h3>
+			Cedula: <input id='tip' list="tip" name="aula" value= <?=$evenUser['tip']?> >
+			Año: <input id="año4" list="año" name="año" value= <?=$evenUser['year']?> > 
+				  <datalist id="año">
+				    <option value="2015">
+				    <option value="2016">
+				    <option value="2017">
+				  </datalist>
+			<div class="btnpeso2">
+		  		<br><input id='btnenviar4' type="button" value="Enviar" class="btn-danger"><br>
+			</div>
+		</div>
+		
+		<div class='col-md-3 espacio'></div>
+	</div>
+
+	<div class='row'>
+		<div class='col-md-3 espacio2'></div>
+		<div id="columnchart4" ></div>
+		<div class='col-md-3 espacio2'></div>
+	</div>
+
+	<script type="text/javascript">
+      <?php echo $columnchart4->renderChart();?>
+    </script>

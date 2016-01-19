@@ -1,0 +1,71 @@
+<?php 
+    require_once('/HighRoller/HighRoller.php');
+    require_once('/HighRoller/HighRollerSeriesData.php');
+    require_once('/HighRoller/HighRollerColumnChart.php');
+    require_once('/application/models/highchart_model.php');
+
+    $meses = array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic');
+
+    $years = array(2015, 2016, 2017);
+
+    $grafica = new Highchart_model;
+
+    ///Grafica 2a
+    $chartData2a = array_values($porcOcup['porc_mes']);
+
+    $series2a[0] = $grafica->crearSerie('% Ocupacion',$chartData2a);
+    $columnchart2a = $grafica->crearHigChart('columnchart2a','Uso total de aulas por mes',$meses,$series2a);
+
+    //Grafica 2b
+    $chartData2b = array_values($porcOcup['porc_year']);
+
+    $series2b[0] = $grafica->crearSerie('% Ocupacion',$chartData2b);
+    $columnchart2b = $grafica->crearHigChart('columnchart2b','Uso total de aulas por año',$years,$series2b);
+?>
+	
+	<link rel='stylesheet' href='<?php echo base_url()?>css/bootstrap.min.css'>
+	<link rel='stylesheet' href='<?php echo base_url()?>css/bn.css'>
+	<link rel='stylesheet' href='<?php echo base_url()?>css/cons_est.css'>
+
+	<script src='<?php echo base_url()?>js/jquery.js'></script>
+	<script src='<?php echo base_url()?>js/jquery-ui.js'></script>
+
+	<script src='<?php echo base_url()?>js/jquery.min.js'></script>
+	<script src='<?php echo base_url()?>js/highstock.js'></script>
+	<script src='<?php echo base_url()?>js/exporting.js'></script>
+
+	<script src='<?php echo base_url()?>js/grafico.js'></script>
+	
+	<!-- HighRoller: set the location of Highcharts library -->
+
+	<?php echo HighRoller::setHighChartsLocation("http://localhost/proyectoFinal/js/highcharts/highcharts.js");?>
+
+	<div class='row'>
+		<div class='col-md-3 espacio'></div>
+		<div class='col-md-3 tableros2'>
+			<h3>Ocupacion Total (%)</h3>
+			Año: <input id="año2" list="año" name="año" value= <?=$porcOcup['year']?> >
+				  <datalist id="año">
+				    <option value="2015">
+				    <option value="2016">
+				    <option value="2017">
+				  </datalist>
+			<div class="btnpeso2">
+		  		<br><input id='btnenviar2' type="button" value="Enviar" class="btn-danger"><br>
+			</div>
+		</div>
+		<div class='col-md-3 espacio'></div>
+	</div>
+
+	<div class='row'>
+		<div class='col-md-3 espacio2'></div>
+		<div id="columnchart2a" class='col-md-3 grafica'></div>
+		<div class='col-md-3 espacio3'></div>
+		<div id="columnchart2b" class='col-md-3 grafica'></div>
+		<div class='col-md-3 espacio2'></div>
+	</div>
+
+	<script type="text/javascript">
+      <?php echo $columnchart2a->renderChart();
+      		echo $columnchart2b->renderChart();?>
+    </script>

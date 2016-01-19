@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Informes</title>
+		<meta charset="UTF-8" /> 	
+		<link rel="stylesheet" href="/proyectofinal/css/parqueadero.css">
+	</head>
+	<body>
+		<!-- opciones -->
+		<div class='menu'>
+			<a href='<?php echo base_url()?>grafico/usoAulas/1/2015'><span class='itemenu'>Uso de Aulas</span></a>
+			<a href='<?php echo base_url()?>grafico/porcOcup/2015'><span class='itemenu'>Ocupacion Total</span></a>
+			<a href='<?php echo base_url()?>grafico/evenAulas/1/2015'><span class='itemenu'>Eventos en Aulas</span></a>
+			<a href='<?php echo base_url()?>grafico/evenUser/1234567890/2015'><span class='itemenu'>Eventos de Usuarios</span></a>
+			<a href='<?php echo base_url()?>grafico/Inventario'><span class='itemenu'>Inventario</span></a>
+			<a href='<?php echo base_url()?>index.php'><span class='itemenu'>Reservas</span></a>
+		</div>
+		<!-- fin opciones -->
+		
+		<!-- contenido -->
+		
+		<?=$content?>
+		<!-- fin contenido -->
+		
+	</body>
+</html>

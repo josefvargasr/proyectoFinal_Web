@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='es'>
+	<head>
+		<title>Batalla naval</title>
+		<meta charset='utf-8'>
+		<link rel='stylesheet' href='<?php echo base_url()?>css/bootstrap.min.css'>
+		<link rel='stylesheet' href='<?php echo base_url()?>css/bn.css'>
+		<link rel="stylesheet" href='<?php echo base_url()?>css/jquery-ui.css'>
+		<script src='<?php echo base_url()?>js/jquery.min.js'></script>
+		<script src='<?php echo base_url()?>js/bootstrap.min.js'></script>
+		
+		<script src='<?php echo base_url()?>js/jquery.js'></script>
+  		<script src='<?php echo base_url()?>js/jquery-ui.js'></script>
+		<script src='<?php echo base_url()?>js/pusher.min.js'></script>	
+		<script src='<?php echo base_url()?>js/highcharts.js'></script>
+		
+	</head>
+	<body>		
+		<?=$content?>
+		
+		<div style="text-align:center">
+			<form action="http://localhost/Batalla_Naval/index.php/auth/logout" method="post" accept-charset="utf-8">
+				<input class type='submit' name='submit' value='Logout'>
+			</form>
+		</div>
+		
+		<div id="container" style="width:100%; height:400px;"></div>
+
+		<div id="dialog" title="Alerta">
+		  	<p>Puede iniciar el juego.</p>
+		</div>
+
+		<div id="dialog2" title="Alerta">
+		  	<p>Turno del otro usuario.</p>
+		</div>
+
+		<div id="dialog3" title="Alerta">
+		  	<p>Su turno.</p>
+		</div>
+
+		<div id="dialog4" title="Alerta">
+		  	<p>GANASTE.</p>
+		</div>
+
+		<div id="dialog5" title="Alerta">
+		  	<p>PERDISTE.</p>
+		</div>
+
+	</body>
+
+
+</html>

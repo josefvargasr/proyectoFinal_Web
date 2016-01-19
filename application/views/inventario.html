@@ -1,0 +1,62 @@
+<link rel='stylesheet' href='<?php echo base_url()?>css/bootstrap.min.css'>
+<link rel='stylesheet' href='<?php echo base_url()?>css/bn.css'>
+<link rel='stylesheet' href='<?php echo base_url()?>css/cons_est.css'>
+
+<script src='<?php echo base_url()?>js/jquery.js'></script>
+<script src='<?php echo base_url()?>js/jquery-ui.js'></script>
+
+<script src='<?php echo base_url()?>js/jquery.min.js'></script>
+<script src='<?php echo base_url()?>js/grafico.js'></script>
+
+<br>
+	<div style="text-align:center">
+		Aula: <input id='aula' list="aula" name="aula" value= "1" >
+		Equipo: <input id='equipo' list="equipo" name="equipo" value= "1" >
+		Estado: <input id='state' list="state" name="state" value= "Bueno" >
+			  <datalist id="est">
+			    <option value="Bueno">
+			    <option value="Malo">
+			  </datalist>
+		<div style="text-align:center">
+	  		<br><input id='btninsert' type="submit" value="Insertar" class="btn-danger">
+	  			<input id='btnedit' type="submit" value="Editar" class="btn-danger">
+	  			<input id='btndelete' type="submit" value="Eliminar" class="btn-danger"><br>
+		</div>
+	</div>
+
+	<div>
+		<h3>Reporte de Inventario</h3>
+	
+	<table class='reporte'>
+		<tr>
+			<th>Num. Aula</th><th>Num. Equipo</th><th>Estado</th>
+		</tr>
+		<tr>
+		<!-- LLENADO DE LA TABLA DE REGISTROS
+			<td>2015-11-03</td><td>10:00</td><td>14:00</td><td>3</td><td>56</td>
+		</tr>
+		<tr>
+		-->
+			<?php
+				if (!($invent == 0)) {
+					$tam_dat = count($invent);
+					for ($i=0; $i < $tam_dat; $i++) {
+						$dat =  $invent[$i];
+						/*$dat es un un "stdClass Object",
+						la forma de acceder a los valores de sus componentes (value) es de la forma $dat->key;*/
+
+						if ($dat->estado == 0)
+							$estado = 'Bueno';
+						else
+							$estado = 'Malo';
+						
+						echo "<td>".$dat->aula."</td><td>".$dat->equipo."</td><td>".$estado."</td>
+							</tr>	<tr>";
+					}
+				}
+			?>
+		</tr>
+	</table>
+	</div>
+
+	<br></br>
